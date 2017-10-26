@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Form</title>
-</head>
+</head> 
 <body>
 	<form>
 		ID:<br> <input type="number" name="id"><br> Topic<br>
