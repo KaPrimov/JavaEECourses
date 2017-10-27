@@ -16,11 +16,8 @@ import bg.jwd.ejbs.api.BankTransaction;
 @LocalBean
 public class BankTransactionBean implements BankTransaction
 {
-
 	private Map<String, BigDecimal> bankAccounts;
 	private String lastUser;
-	
-	
 	
 	public BankTransactionBean()
 	{
@@ -35,7 +32,7 @@ public class BankTransactionBean implements BankTransaction
 		if (amount.compareTo(BigDecimal.ONE) < 0 ||
 				amount.compareTo(this.bankAccounts.get(username).divide(BigDecimal.valueOf(2))) > 1) {
 			throw new IllegalArgumentException("Insufficient funds!");
-		} 
+		}
 		this.bankAccounts.put(username, this.bankAccounts.get(username).subtract(amount));
 		this.updateLastUser(username);
 	}
