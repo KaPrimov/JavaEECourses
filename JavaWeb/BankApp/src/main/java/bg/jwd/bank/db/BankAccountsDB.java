@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import bg.jwd.bank.dtos.AccountDto;
 import bg.jwd.bank.entities.BankAccount;
 import bg.jwd.bank.enums.Currency;
+import bg.jwd.bank.utils.UserUtils;
 
 @Scope(value = "singleton")
 @Component
@@ -84,7 +85,7 @@ public class BankAccountsDB
 		bankAccount.setAmount(new BigDecimal(account.getAmount()));
 		bankAccount.setCurrency(Currency.valueOf(account.getCurrency()));
 		bankAccount.setUsername(account.getUsername());
-		bankAccount.setCreator("Pesho");
+		bankAccount.setCreator(UserUtils.getUser().getUsername());
 		
 		this.bankAccounts.put(account.getAccountNumber(), bankAccount);
 	}
