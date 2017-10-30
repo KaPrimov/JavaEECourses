@@ -5,7 +5,11 @@
 		http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<persistence-unit name="persistenceUnit"
-		transaction-type="RESOURCE_LOCAL">
+		transaction-type="RESOURCE_LOCAL" >
+		<class>bg.jwd.cars.entity.user.AutoUser</class>
+		<class>bg.jwd.cars.entity.user.Authority</class>
+		<class>bg.jwd.cars.entity.car.Car</class>
+		<!-- <class>bg.jwd.cars.entity.user.UserAuthority</class> -->
 	</persistence-unit>
 
 </persistence>

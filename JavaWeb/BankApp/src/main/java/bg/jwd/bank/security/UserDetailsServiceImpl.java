@@ -1,6 +1,7 @@
 package bg.jwd.bank.security;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;

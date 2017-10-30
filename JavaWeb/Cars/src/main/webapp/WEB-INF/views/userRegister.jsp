@@ -25,7 +25,7 @@
 					<td><input type="text" name="status"><td>
 				</tr>
 			</table>
-			<input type=submit id="btn1" name="Search"/>
+			<input type=submit id="btn1" name="Search" value="Search"/>
 		</form:form>
 		
 		<table border="1">
@@ -49,7 +49,7 @@
 
 		<div>Username: ${user.username}</div>
 
-		<form action="/uni/logout" method="post">
+		<form action="/cars/logout" method="post">
 			<input type="submit" value="Log out" />
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		</form>

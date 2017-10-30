@@ -9,13 +9,12 @@ import javax.persistence.Table;
 @Table(name = "NM_AUTHORITY")
 public class Authority {
 
-	@Id
-	@Column(name = "ID")
 	private long id;
 
-	@Column(name = "AUTHORITY")
 	private String authority;
 
+	@Id
+	@Column(name = "ID")
 	public long getId() {
 		return id;
 	}
@@ -24,6 +23,7 @@ public class Authority {
 		this.id = id;
 	}
 
+	@Column(name = "AUTHORITY")
 	public String getAuthority() {
 		return authority;
 	}
