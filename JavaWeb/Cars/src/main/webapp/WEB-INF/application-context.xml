@@ -36,7 +36,7 @@
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
 		<beans:property name="database" value="HSQL" />
 		<beans:property name="databasePlatform"
-			value="org.hibernate.dialect.HSQLDialect" />
+			value="org.hibernate.dialect.OracleDialect" />
 	</beans:bean>
 
 	<beans:bean id="jpaDialect"

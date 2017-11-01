@@ -1,11 +1,11 @@
 package bg.jwd.cars.utils;
 
-import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import org.modelmapper.ModelMapper;
 
 public final class DtoConverter
 {
@@ -22,7 +22,6 @@ public final class DtoConverter
 
 	public static <S, D> List<D> convert(Iterable<S> sourceIter, Class<D> destinationClass)
 	{
-		ModelMapper mapper = new ModelMapper();
 		List<D> resultList = new ArrayList<>();
 		for (S s : sourceIter)
 		{
@@ -35,7 +34,6 @@ public final class DtoConverter
 
 	public static <S, D> Set<D> convertToSet(Iterable<S> sourceIter, Class<D> destinationClass)
 	{
-		ModelMapper mapper = new ModelMapper();
 		Set<D> resultSet = new HashSet<>();
 		for (S s : sourceIter)
 		{

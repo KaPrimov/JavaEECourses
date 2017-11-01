@@ -2,19 +2,19 @@ package bg.jwd.cars.entity.user;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import bg.jwd.cars.entity.car.Car;
 
 @Entity
 @Table(name = "AUTO_USER")
@@ -38,11 +38,10 @@ public class AutoUser implements Serializable {
 	private long createdBy;
 
 	private List<Authority> authorities;
-	
-	private Set<Car> cars;
 
 	@Id
-	@Column(name = "ID")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="USER_SEQ")
+	@SequenceGenerator(name="USER_SEQ", sequenceName="USER_SEQ", allocationSize = 1, initialValue = 213)
 	public long getId() {
 		return id;
 	}
@@ -78,7 +77,7 @@ public class AutoUser implements Serializable {
 		this.createdBy = createdBy;
 	}
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(name = "USER_AUTHORITY", joinColumns = {
 			@JoinColumn(name = "USER_ID", referencedColumnName = "ID") }, inverseJoinColumns = {
 					@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID") })
@@ -97,18 +96,5 @@ public class AutoUser implements Serializable {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	
-	@OneToMany(mappedBy="user")
-	public Set<Car> getCars()
-	{
-		return cars;
-	}
-
-	public void setCars(Set<Car> cars)
-	{
-		this.cars = cars;
-	}
-	
-	
+	}	
 }

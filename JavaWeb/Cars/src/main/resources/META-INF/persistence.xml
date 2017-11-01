@@ -9,7 +9,12 @@
 		<class>bg.jwd.cars.entity.user.AutoUser</class>
 		<class>bg.jwd.cars.entity.user.Authority</class>
 		<class>bg.jwd.cars.entity.car.Car</class>
+		<properties>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
+        </properties>
 		<!-- <class>bg.jwd.cars.entity.user.UserAuthority</class> -->
 	</persistence-unit>
-
+	
 </persistence>

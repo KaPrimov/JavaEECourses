@@ -8,7 +8,7 @@
 		<h1>error.getMessage()</h1>
 	</c:if>
 	<a href="${contextPath}/">Home</a>
-	<a href="${contextPath}/add-car">Add Car</a>
+	<a href="${contextPath}/addCar">Add Car</a>
 	<a href="${contextPath}/register">Register</a>
 	<sec:authorize access="hasRole('ROLE_USER')">
 			<a href="${contextPath}/logout">Logout</a>

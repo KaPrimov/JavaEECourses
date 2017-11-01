@@ -1,4 +1,4 @@
-package bg.jwd.cars;
+package bg.jwd.cars.controller.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,4 +11,8 @@ public class LoginController {
 	public String loginPage() {
 		return "login";
 	}
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage() {
+		return "login";
+	}	
 }

@@ -9,11 +9,18 @@ public class CarHomeViewDto
 	private BigDecimal price;
 	private String userUsername;
 	
-	public CarHomeViewDto()
+	public CarHomeViewDto(String brand, String model, BigDecimal price, String userUsername)
 	{
-		super();
+		this.brand = brand;
+		this.model = model;
+		this.price = price;
+		this.userUsername = userUsername;
 	}
 
+	public CarHomeViewDto()
+	{
+	}
+	
 	public String getBrand()
 	{
 		return brand;

@@ -24,7 +24,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		List<CarHomeViewDto> carDtos = carDao.getAllCars();
-		
+		model.addAttribute("cars", carDtos);
 		return "home";
 	}
 	

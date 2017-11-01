@@ -5,86 +5,67 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import bg.jwd.cars.entity.user.AutoUser;
+import javax.persistence.NamedQuery;
 
 @Entity
-@Table(name = "CAR")
-public class Car implements Serializable
-{
+@NamedQuery(name="Car.findAll", query="SELECT c FROM Car c")
+public class Car implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private long id;
-	private String brand;
-	private String model;
-	private BigDecimal price;
-	private AutoUser user;
-
-	public Car()
-	{
-	}
-
 	@Id
-	@Column(name = "ID")
-	public long getId()
-	{
-		return id;
+	private long id;
+
+	private String brand;
+
+	private String model;
+
+	private BigDecimal price;
+
+	@Column(name="\"USER\"")
+	private BigDecimal user;
+
+	public Car() {
 	}
 
-	public void setId(long id)
-	{
+	public long getId() {
+		return this.id;
+	}
+
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	@Column(name = "BRAND")
-	public String getBrand()
-	{
-		return brand;
+	public String getBrand() {
+		return this.brand;
 	}
 
-	public void setBrand(String brand)
-	{
+	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
-	@Column(name = "MODEL")
-	public String getModel()
-	{
-		return model;
+	public String getModel() {
+		return this.model;
 	}
 
-	public void setModel(String model)
-	{
+	public void setModel(String model) {
 		this.model = model;
 	}
 
-	@Column(name = "PRICE")
-	public BigDecimal getPrice()
-	{
-		return price;
+	public BigDecimal getPrice() {
+		return this.price;
 	}
 
-	public void setPrice(BigDecimal price)
-	{
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "USER")
-	public AutoUser getUser()
-	{
-		return user;
+	public BigDecimal getUser() {
+		return this.user;
 	}
 
-	public void setUser(AutoUser userId)
-	{
-		this.user = userId;
+	public void setUser(BigDecimal user) {
+		this.user = user;
 	}
+
 }
