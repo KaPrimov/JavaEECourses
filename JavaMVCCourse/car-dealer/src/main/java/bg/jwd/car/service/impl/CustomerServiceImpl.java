@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bg.jwd.car.dao.CustomerDao;
 import bg.jwd.car.dto.CustomerViewDto;
+import bg.jwd.car.entities.Customer;
 import bg.jwd.car.service.api.CustomerService;
 import bg.jwd.car.utils.DtoConverter;
 
@@ -23,11 +24,13 @@ public class CustomerServiceImpl implements CustomerService
 	{
 		if ("ascending".equals(type))
 		{
-			return DtoConverter.convert(customerDao.findAllCustomersOrderByBirthDateAsc(), CustomerViewDto.class);
+			List<Customer> customerModels = customerDao.findAllCustomersOrderByBirthDateAsc();
+			return DtoConverter.convert(customerModels, CustomerViewDto.class);
 		} 
 		else if ("descending".equals(type)) 
 		{
-			return DtoConverter.convert(customerDao.findAll(), CustomerViewDto.class);			
+			List<Customer> customerModels = customerDao.findAllCustomersOrderByBirthDateDesc();
+			return DtoConverter.convert(customerModels, CustomerViewDto.class);			
 		}
 		else 
 		{

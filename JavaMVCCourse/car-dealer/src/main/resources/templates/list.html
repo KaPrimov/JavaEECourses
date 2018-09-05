@@ -8,10 +8,10 @@
 </head>
 <body>
 	<h2>Customers</h2>
-	<div th:each="customer : ${customers}">
-		<p th:text="*{name}"></p>
-		<p th:text="*{birthDate}"></p>
-		<p th:text="*{isYoungDriver}"></p>
+	<div th:each="c : ${customers}">
+		<p th:text="${c.name}"></p>
+		<p th:text="${c.birthDate}"></p>
+		<p th:text="${c.isYoungDriver}"></p>
 	</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package bg.jwd.car.dto;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CustomerViewDto
@@ -23,9 +24,10 @@ public class CustomerViewDto
 		this.name = name;
 	}
 
-	public Date getBirthDate()
+	public String getBirthDate()
 	{
-		return birthDate;
+		SimpleDateFormat dt = new SimpleDateFormat("dd-MMMM-yyyy");
+		return dt.format(birthDate);
 	}
 
 	public void setBirthDate(Date birthDate)
@@ -41,13 +43,5 @@ public class CustomerViewDto
 	public void setIsYoungDriver(Boolean isYoungDriver)
 	{
 		this.isYoungDriver = isYoungDriver;
-	}
-
-	@Override
-	public String toString()
-	{
-		return name + ": Birth Date= " + birthDate + "; Young Driver=" + isYoungDriver + "]";
 	}	
-	
-	
 }
